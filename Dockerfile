@@ -3,7 +3,7 @@
 FROM node:14-slim
 
 # Create and change to the app directory.
-WORKDIR C:\Users\philip\Desktop\chipi chapa
+WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
 # Copying this first prevents re-running npm install on every code change.
