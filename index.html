@@ -1,58 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>DRACULA FLOW</title>
     <style>
-        body {
-            background-image: url("chipi-chipi-chapa-chapa.gif");
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
+            height: 100%;
             margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
-        .btn-custom {
-            font-size: 20px;
-            padding: 10px 20px;
-            background-color: pink;
-            border-color: pink;
-        }
-        .image-clone {
-            position: absolute;
-            display: none;
+        video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            background-size: cover;
         }
     </style>
-    <script>
-        var intervalId;
-        var images = ['funny.png', 'funny-2.png', 'funny-3.png', 'funny-4.png', 'funny-5.png', 'funny-6.png'];
-        function playAudio() {
-            var audio = document.getElementById('myAudio');
-            if (audio.paused) {
-                audio.currentTime = 30;
-                audio.play();
-                intervalId = setInterval(spawnImage, 400);
-            }
-        };
-
-        function spawnImage() {
-            var randomImage = images[Math.floor(Math.random() * images.length)];
-            var newImage = $("<img src='" + randomImage + "' class='image-clone'>");
-            newImage.css({ "left": Math.random() * $(window).width(), "top": "0px" });
-            $("body").append(newImage);
-            newImage.show().animate({ "top": $(window).height() + "px" }, 2000, function() {
-                $(this).hide();
-            });
-        }
-    </script>
 </head>
 <body>
-    <audio id="myAudio">
-        <source src="chipi chipi chapa chapa - hardstyle.mp3" type="audio/mpeg">
-    </audio>
-    <button class="btn btn-primary btn-custom" onclick="playAudio()">Play</button>
+    <video id="myVideo" controls loop>
+        <source src="dracula flow 3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myVideo = document.getElementById('myVideo');
+            myVideo.play();
+        });
+    </script>
 </body>
 </html>
